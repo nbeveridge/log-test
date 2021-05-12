@@ -38,3 +38,17 @@ rospy.spin()
 # print('ekfcn')
 # sys.stdout.close()
 # sys.stdout=orig_stdout 
+
+maybe make the log file in the docker container
+then open another terminal and use the below 
+method to copy over the file when you want to see it
+
+
+In order to copy a file from a running container to your host you first need to get your Docker container ID, you can do that with the following command:
+
+docker ps
+ 
+ 
+Then once you have your container ID, you can run the following:
+
+docker cp container_id:/path/to/your_file.txt /path/on/your/host
