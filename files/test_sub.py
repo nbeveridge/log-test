@@ -10,9 +10,15 @@ import time
 def callback(msg):
     heard = msg.data
     rospy.loginfo('heard topic ' + heard)
+    # file1 = open("/catkin_ws/src/scripts/text.txt","r")
+    # file1.write("dfvhejfhhhhhhhhhhhhhhhhhhhhhhhh")
+    # # print file1.readlines()
+    # # print
+    # file1.close()
+    path = "/catkin_ws/src/scripts/text.txt"
     orig_stdout = sys.stdout
     rospy.loginfo('orig_stdout = '+str(orig_stdout))
-    path = 'C:\\Users\\neilb\\desktop\\text.txt'
+    # path = 'C:\\Users\\neilb\\desktop\\text.txt'
     sys.stdout = open(path, 'w')
     time.sleep(1)
     new_stdout = sys.stdout
@@ -39,6 +45,7 @@ rospy.spin()
 # sys.stdout.close()
 # sys.stdout=orig_stdout 
 
+"""
 maybe make the log file in the docker container
 then open another terminal and use the below 
 method to copy over the file when you want to see it
@@ -52,3 +59,4 @@ docker ps
 Then once you have your container ID, you can run the following:
 
 docker cp container_id:/path/to/your_file.txt /path/on/your/host
+"""
