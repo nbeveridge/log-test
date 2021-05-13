@@ -5,7 +5,7 @@ from hx711 import HX711
 
 
 class sensor:
-        def __init__(self,SensorPins,balloon_type):
+        def __init__(self,SensorPins):
             self.SensorPins = SensorPins                
 
             # pub = rospy.Publisher(balloon_type+'_balloon_sensor_node_pub', Int64, queue_size=1)
@@ -17,8 +17,8 @@ class sensor:
             # and I got numbers around 184000 when I added 2kg. So, according to the rule of thirds:
             # If 2000 grams is 184000 then 1000 grams is 184000 / 2000 = 92.
             #hx.set_reference_unit(113)
-            referenceUnit = rospy.get_param(balloon_type+"_reference_unit")
-            offset =  rospy.get_param(balloon_type+"_offset")
+            referenceUnit = 100
+            offset =  0
             out = SensorPins[0]
             sck = SensorPins[1]
             self.hx = HX711(out, sck)
@@ -37,17 +37,17 @@ class sensor:
 
         def read_sensor_test(self):
             val = self.hx.get_weight(5)  #  get_weight(5) averages the weight from 5 samples
-            self.hx.power_down()
-            self.hx.power_up()
+#             self.hx.power_down()
+#             self.hx.power_up()
             return int(val)
 
+def test():
+    sen = sensor([5,6])
+    while(True):
+        start = time.time()
 
-sen = sensor()
+        sen.read_sensor_test()
 
-start = time.time()
+        end = time.time()
 
-sen.read_sensor_test()
-
-end = time.time()
-
-print(f"Runtime of the program is {(end - start)/5}")
+        print(f"Runtime of the program is {(end - start)/5}")
