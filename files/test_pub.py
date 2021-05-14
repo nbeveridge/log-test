@@ -13,4 +13,5 @@ pub = rospy.Publisher('test', String, queue_size=1)
 
 while(True):
     pub.publish('test')
+    rospy.loginfo('chuvjfbiuervnijrdjijkcask')
     time.sleep(1)

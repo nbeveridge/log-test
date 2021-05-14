@@ -10,22 +10,24 @@ import time
 def callback(msg):
     heard = msg.data
     rospy.loginfo('heard topic ' + heard)
+    sys.stdout.write('New State Is testjhdvrfvjkernmifvnekjrvnbuehjfrvjer')
+    print(99999999999999999999999999999999999999999999999999999999999999999)
     # file1 = open("/catkin_ws/src/scripts/text.txt","r")
     # file1.write("dfvhejfhhhhhhhhhhhhhhhhhhhhhhhh")
     # # print file1.readlines()
     # # print
     # file1.close()
-    path = "/catkin_ws/src/scripts/text.txt"
-    orig_stdout = sys.stdout
-    rospy.loginfo('orig_stdout = '+str(orig_stdout))
-    # path = 'C:\\Users\\neilb\\desktop\\text.txt'
-    sys.stdout = open(path, 'w')
-    time.sleep(1)
-    new_stdout = sys.stdout
-    rospy.loginfo('new_stdout = '+str(new_stdout))
-    print('iuedjvnkj')
-    sys.stdout.close()
-    sys.stdout=orig_stdout 
+    # path = "/catkin_ws/src/scripts/text.txt"
+    # orig_stdout = sys.stdout
+    # rospy.loginfo('orig_stdout = '+str(orig_stdout))
+    # # path = 'C:\\Users\\neilb\\desktop\\text.txt'
+    # sys.stdout = open(path, 'w')
+    # time.sleep(1)
+    # new_stdout = sys.stdout
+    # rospy.loginfo('new_stdout = '+str(new_stdout))
+    # print('iuedjvnkj')
+    # sys.stdout.close()
+    # sys.stdout=orig_stdout 
 
 rospy.init_node('test_sub')  
 
